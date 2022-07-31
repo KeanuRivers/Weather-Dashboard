@@ -16,13 +16,36 @@
   </head>
 
   <body>
-    <h1>Weather Dashboard</h1>
+    <div class="jumbotron jumbotron-fluid text-center bg-primary" id="title">
+      <h1 class="display-7">Weather Dashboard</h1>
+    </div>
     <div class="container">
-      <h2>Search For a City</h2>
-      <input id="input" placeholder="City Name" aria-label="Enter City Here" />
-      <button id="searchBtn">Search</button>
-      <div id="current"></div>
-      <div id="forecast"></div>
+      <div class="row">
+        <div class="col-md-3">
+          <input
+            id="input"
+            class="form-control form-control-sm"
+            type="search"
+            placeholder="City Name"
+          />
+          <button
+            class="btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+            id="searchBtn"
+          >
+            Search
+          </button>
+          <div id="history"></div>
+        </div>
+        <div class="col-md-10">
+          <div id="currentforecast"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="futureforecast"></div>
+        </div>
+      </div>
     </div>
 
     <script src="./assests/script.js"></script>
