@@ -14,3 +14,20 @@ $(document).ready(function () {
     
     display();
 });
+
+function currentWeather(cityName) {
+  let queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
+      "q=" + cityName + "&units=imperial" + "&appid=" + APIKey;
+  let currentDate = new Date().toLocaleDateString();
+  $
+      .ajax({
+          url: queryURL,
+          method: "GET"
+      })
+      .then(function (response) {
+          console.log(response);
+          $("#currentforecast").empty();
+          $("#currentforecast").append(`<div class="card bg-info text-dark" style="width: 18rem;"> <h3>${response.name}</h3><p>${currentDate}</p><p>${response.main.temp}°F
+          </p><p>${response.wind.speed}mph</p><p>${response.main.humidity}%</p><img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png"></div>`)
+      });
+};
